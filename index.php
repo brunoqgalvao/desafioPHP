@@ -7,9 +7,21 @@
   <title>Virtual PHP</title>
 </head>
 <body>
-<?php 
-echo "Olá Mundo";
-
-?>
+   <?php 
+    $nome = "Vinicius";
+    
+    // ola mundo
+      echo $nome;
+      if($nome == "Vinicius"){
+        echo "Ok - é Vinicius";
+      }else{
+        echo "Não é Vinicius";
+      }
+      for ($i=0; $i < 5; $i++) { 
+        echo "<h1> $i </h1>";
+      }
+      var_dump($nome)
+    ?>
 </body>
+
 </html>
