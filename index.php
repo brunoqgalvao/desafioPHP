@@ -1,6 +1,6 @@
  <?php
-    $usuario = ["logado"=>false];
-    //$usuario = ["logado" => true, nome" => "Bruno Galvao", "nivelAcesso" => 0];
+    $usuario = "";
+    $usuario = ["logado" => true, "nome" => "Bruno Galvao", "nivelAcesso" => 1];
  ?>
 
 
@@ -39,31 +39,25 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
 
-          <!-- php tags forma aberta-->
-          <?php if($usuario['nivelAcesso'] == 0): ?>
-            <li class="nav-item active">
-              <a class="nav-link" href="#"> Perfil <span class="sr-only">(current)</span></a>
-            </li>
+          <?php if(isset($usuario) && $usuario != ""): ?>        
+            <?php if($usuario['nivelAcesso'] == 0): ?>
+              <li class="nav-item active">
+                <a class="nav-link" href="#"> Perfil <span class="sr-only">(current)</span></a>
+              </li>
+            <?php else: ?>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Painel Admin<span class="sr-only">(current)</span></a>
+              </li>
+            <?php endif ?>
+              <li class='nav-item'>
+                <a href='#' class='nav-link'> Olá <?= $usuario['nome'] ?> </a>
+              </li>
           <?php else: ?>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Editar Conteúdo<span class="sr-only">(current)</span></a>
-            </li>
-          <?php endif ?>
-          <!-- php tags, logica de elemento -->
-          <?php
-          
-            $elemOlaUsuario = "
-            <li class='nav-item'>
-              <a href='#' class='nav-link'> Olá {$usuario['nome']} </a>
-            </li>
-            ";
-            $elemLogin = "
             <li class='nav-item'>
               <a href='#' class='nav-link'> Login </a>
             </li>
-            ";
-            echo $usuario[logado]? $elemOlaUsuario : $elemLogin;
-          ?>
+          <?php endif ?>
+
           
         </ul>
       </div>
