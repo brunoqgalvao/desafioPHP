@@ -1,6 +1,52 @@
  <?php
-    $usuario = "";
     $usuario = ["logado" => true, "nome" => "Bruno Galvao", "nivelAcesso" => 1];
+
+    $produtos = [
+      [
+        "nome" => "Curso Fullstack",
+        "descricao" => "O curso full stack ensina programação",
+        "preco" => 1200,
+        "img_path" => './img/fullstack.jpg',
+      ],
+      [
+        "nome" => "Curso Data Science",
+        "descricao" => "Este curso ensina ciência de dados em python e R",
+        "preco" => 999,
+        "img_path" => './img/datascience.jpg',
+      ],
+      [
+        "nome" => "Curso Mobile Android",
+        "descricao" => "Este curso ensina desenvolvimento de app mobile em Android",
+        "preco" => 1200,
+        "img_path" => './img/android.jpg',
+      ],
+      [
+        "nome" => "Curso Mobile Android",
+        "descricao" => "Este curso ensina desenvolvimento de app mobile em Android",
+        "preco" => 1200,
+        "img_path" => './img/dummy.png',
+      ],
+      [
+        "nome" => "Curso Mobile Android",
+        "descricao" => "Este curso ensina desenvolvimento de app mobile em Android",
+        "preco" => 1200,
+        "img_path" => './img/dummy.png',
+      ],
+      [
+        "nome" => "Curso Mobile Android",
+        "descricao" => "Este curso ensina desenvolvimento de app mobile em Android",
+        "preco" => 1200,
+        "img_path" => './img/dummy.png',
+      ],
+      [
+        "nome" => "Curso Mobile Android",
+        "descricao" => "Este curso ensina desenvolvimento de app mobile em Android",
+        "preco" => 1200,
+        "img_path" => './img/dummy.png',
+      ],
+    ];
+
+
  ?>
 
 
@@ -65,120 +111,27 @@
   </header>
   <!-- container define que está num container fixo e mantém centralizado. container-fluid ele ocupa tudo -->
   <main class="container mt-5">
-    <section class="row">
-      <div class="col-md-4">
-        <!-- coluna para segurar card -->
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+      <?php foreach($produtos as $idx => $produto):?>
+        <?php if($idx%3==0): ?>
+          <section class="row mb-3">
+        <?php endif ?>
+          <div class="col-md-4">
+            <!-- coluna para segurar card -->
+            <div class="card" style="width: 18rem;">
+              <img src=<?= $produto['img_path'] ?> class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><?= $produto['nome'] ?></h5>
+                <p class="card-text"><?= $produto['descricao'] ?></p>
+                <a href="#" class="btn btn-primary">R$ <?= $produto['preco'] ?></a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <!-- coluna para segurar card -->
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <!-- coluna para segurar card -->
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="row">
-      <div class="col-md-4">
-        <!-- coluna para segurar card -->
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <!-- coluna para segurar card -->
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <!-- coluna para segurar card -->
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="row">
-      <div class="col-md-4">
-        <!-- coluna para segurar card -->
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <!-- coluna para segurar card -->
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <!-- coluna para segurar card -->
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </section>
+          <!-- fecha a section no terceiro ou no último -->
+        <?php if($idx%3==2 || $idx == count($produtos)-1) :?>
+          
+          </section>
+        <?php endif ?>
+      <?php endforeach ?>
   </main>
 
 
