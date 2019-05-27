@@ -2,48 +2,55 @@
     $usuario = ["logado" => true, "nome" => "Bruno Galvao", "nivelAcesso" => 1];
 
     $produtos = [
-      [
+      "produto1" => [
         "nome" => "Curso Fullstack",
         "descricao" => "O curso full stack ensina programação",
         "preco" => 1200,
-        "img_path" => './img/fullstack.jpg',
+        "img_path" => 'img/fullstack.jpg',
       ],
-      [
+      "produto2" => [
         "nome" => "Curso Data Science",
         "descricao" => "Este curso ensina ciência de dados em python e R",
         "preco" => 999,
-        "img_path" => './img/datascience.jpg',
+        "img_path" => 'img/datascience.jpg',
       ],
-      [
+      "produto3" => [
         "nome" => "Curso Mobile Android",
         "descricao" => "Este curso ensina desenvolvimento de app mobile em Android",
         "preco" => 1200,
         "img_path" => './img/android.jpg',
       ],
-      [
+      "produto4" => [
+        "nome" => "Curso Mobile Android",
+        "descricao" => "Este curso ensina desenvolvimento de app mobile em Android",
+        "preco" => 1200,
+        "img_path" => 'img/teste.png',
+      ],
+      "produto5" => [
         "nome" => "Curso Mobile Android",
         "descricao" => "Este curso ensina desenvolvimento de app mobile em Android",
         "preco" => 1200,
         "img_path" => './img/dummy.png',
       ],
-      [
+      "produto6" => [
         "nome" => "Curso Mobile Android",
         "descricao" => "Este curso ensina desenvolvimento de app mobile em Android",
         "preco" => 1200,
         "img_path" => './img/dummy.png',
       ],
-      [
+      "produto7" => [
         "nome" => "Curso Mobile Android",
         "descricao" => "Este curso ensina desenvolvimento de app mobile em Android",
         "preco" => 1200,
         "img_path" => './img/dummy.png',
       ],
-      [
-        "nome" => "Curso Mobile Android",
-        "descricao" => "Este curso ensina desenvolvimento de app mobile em Android",
-        "preco" => 1200,
-        "img_path" => './img/dummy.png',
-      ],
+    ];
+    $categorias = [
+      "Cursos",
+      "Tutoriais",
+      "Artigos",
+      "Forum",
+      "Códigos",
     ];
 
 
@@ -102,38 +109,91 @@
             <li class='nav-item'>
               <a href='#' class='nav-link'> Login </a>
             </li>
-          <?php endif ?>
-
-          
+          <?php endif ?> 
         </ul>
       </div>
+    </nav>
+    <nav>
+      <ul class="row mt-3 justify-content-center">
+        <?php foreach( $categorias as $categoria ): ?>
+          <li class="col-md-2"><?= $categoria ?></li>
+        <?php endforeach ?>
+      </ul>
     </nav>
   </header>
   <!-- container define que está num container fixo e mantém centralizado. container-fluid ele ocupa tudo -->
   <main class="container mt-5">
-      <?php foreach($produtos as $idx => $produto):?>
-        <?php if($idx%3==0): ?>
-          <section class="row mb-3">
-        <?php endif ?>
-          <div class="col-md-4">
-            <!-- coluna para segurar card -->
-            <div class="card" style="width: 18rem;">
-              <img src=<?= $produto['img_path'] ?> class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title"><?= $produto['nome'] ?></h5>
-                <p class="card-text"><?= $produto['descricao'] ?></p>
-                <a href="#" class="btn btn-primary">R$ <?= $produto['preco'] ?></a>
-              </div>
+    <section class="row">
+
+      <?php foreach($produtos as $chave => $produto):?>
+        <div class="col-md-4 mb-3">
+          <!-- coluna para segurar card -->
+          <div class="card" style="width: 18rem;">
+            <img src=<?= $produto['img_path'] ?> class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><?= $produto['nome'] ?></h5>
+              <p class="card-text"><?= $produto['descricao'] ?></p>
+              <h4> R$ <?= $produto['preco'] ?> </h4>
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#<?= $chave ?>">
+                Comprar
+              </button>
             </div>
           </div>
-          <!-- fecha a section no terceiro ou no último -->
-        <?php if($idx%3==2 || $idx == count($produtos)-1) :?>
-          
-          </section>
-        <?php endif ?>
+        </div>
+      <!-- fecha a section no terceiro ou no último -->   
       <?php endforeach ?>
+    </section>
+
   </main>
 
+  <!-- Modal -->
+  <?php foreach($produtos as $chave=>$produto): ?>
+  <div class="modal fade" id="<?= $chave ?>" tabindex="-1" role="dialog" aria-labelledby="<?= $chave ?>Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="<?= $chave ?>Label"><?= $produto['nome'] ?></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class='row mb-3'>
+            <div class='col-md-12'>
+            <img src=<?= $produto['img_path'] ?> class="card-img-top" style="height:10rem;" alt="...">
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-12'>
+              <form>
+                <div class="form-group">
+                  <input type="text" name="nomeCliente" id="nomeCliente" placeholder="Nome Completo">
+                </div>
+                <div class="form-group">
+                  <input type="number" name="cpfCliente" id="cpfCliente" placeholder='CPF'>
+                  <small id="cpfHelp" class="form-text text-muted">Somente números</small>
+                </div>
+                <div class="form-group">
+                  <input type="number" name="cartaoCliente" id="cartaoCliente" placeholder='Cartao de crédito'>
+                </div>
+                <div class="form-group">
+                  <input type="date" name="dataValidadeCartao" id="dataValidadeCartao" placeholder='Data de Validade do Cartão'>
+                </div> 
+                <div class="form-group">
+                  <input type="number" name="cvvCartao" id="cvvCartao" maxlength="3" placeholder='Data de Validade do Cartão'>
+                </div>                            
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="text-primary">Preço Total: R$ <?= $produto['preco'] ?></div>
+          <button type="button" class="btn btn-success">Finalizar Compra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <?php endforeach ?>
 
 </body>
 
