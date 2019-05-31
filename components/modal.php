@@ -17,7 +17,7 @@
           </div>
           <div class='row'>
             <div class='col-sm-12'>
-              <form>
+              <form method="POST" action="sucesso.php" id="i<?=$chave ?>">
                 <div class="form-group">
                   <input type="text" name="nomeCliente" id="nomeCliente" placeholder="Nome Completo">
                 </div>
@@ -33,15 +33,16 @@
                 </div> 
                 <div class="form-group">
                   <input type="number" name="cvvCartao" id="cvvCartao" maxlength="3" placeholder='Data de Validade do Cartão'>
-                </div>                            
-              </form>
+                </div>      
+                <input type="text" name="nomeProduto" value="<?php $produto['nome'] ?>" hidden />
+              </div>
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <div class="text-primary">Preço Total: R$ <?= $produto['preco'] ?></div>
-          <button type="button" class="btn btn-success">Finalizar Compra</button>
-        </div>
+          <div class="modal-footer">
+            <div class="text-primary">Preço Total: R$ <?= $produto['preco'] ?></div>
+            <button type="submit" class="btn btn-success" form="i<?=$chave ?>">Finalizar Compra</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

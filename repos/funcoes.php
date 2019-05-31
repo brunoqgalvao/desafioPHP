@@ -5,15 +5,9 @@
     $usuario = ["logado" => true, "nome" => $nome, "nivelAcesso" => $nivelAcesso];
     return $usuario;
     }
-    $categorias = [
-      "Cursos",
-      "Tutoriais",
-      "Artigos",
-      "Forum",
-      "Códigos",
-    ];
+    
   
-  function addProduto($nome, $descricao, $preco, $img_path, $produtos){
+  function addProduto(&$produtos, $nome, $descricao, $preco, $img_path){
         $novoProduto = [
           "nome" => $nome,
           "descricao" => $descricao,
@@ -22,7 +16,6 @@
         ];
         $chave = count($produtos) + 1;
         $produtos["produto$chave"] = $novoProduto;
-        return $produtos;
       }   
 
 ?>

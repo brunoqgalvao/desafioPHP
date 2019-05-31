@@ -1,9 +1,9 @@
 <?php
 
-  include("funcoes.php");
-  include("dados.php");
+  include("repos/funcoes.php");
+  include("repos/dados.php");
   $usuario = logarUsuario("Bruno Galvao", 0);
-  $produtos = addProduto("Curso Full Stack Master", "Um curso muito legal", 1999,'img/fullstack.jpg',$produtos);
+  addProduto($produtos, "Curso Full Stack Master", "Um curso muito legal", 1999,'img/fullstack.jpg');
 ?>
 
 <head>
