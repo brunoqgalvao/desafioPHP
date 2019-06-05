@@ -1,7 +1,7 @@
 <main class="container mt-5">
     <section class="row">
 
-      <?php foreach($produtos as $chave => $produto):?>
+      <?php foreach($produtos as $produto):?>
         <div class="col-md-4 mb-3">
           <!-- coluna para segurar card -->
           <div class="card" style="width: 18rem;">
@@ -10,7 +10,7 @@
               <h5 class="card-title"><?= $produto['nome'] ?></h5>
               <p class="card-text"><?= $produto['descricao'] ?></p>
               <h4> R$ <?= $produto['preco'] ?> <h4>
-              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#<?= $chave ?>">
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#<?= $produto['id'] ?>">
                 Comprar
               </button>
             </div>

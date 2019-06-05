@@ -1,10 +1,10 @@
 <!-- Modal -->
-<?php foreach($produtos as $chave=>$produto): ?>
-  <div class="modal fade" id="<?= $chave ?>" tabindex="-1" role="dialog" aria-labelledby="<?= $chave ?>Label" aria-hidden="true">
+<?php foreach($produtos as $produto): ?>
+  <div class="modal fade" id="<?= $produto['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="<?= $produto['id'] ?>Label" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="<?= $chave ?>Label"><?= $produto['nome'] ?></h5>
+          <h5 class="modal-title" id="<?= $produto['id'] ?>Label"><?= $produto['nome'] ?></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -17,7 +17,7 @@
           </div>
           <div class='row'>
             <div class='col-sm-12'>
-              <form method="POST" action="sucesso.php" id="i<?=$chave ?>">
+              <form method="POST" action="sucesso.php" id="i<?=$produto['id'] ?>">
                 <div class="form-group">
                   <input type="text" name="nomeCliente" id="nomeCliente" placeholder="Nome Completo">
                 </div>
@@ -40,7 +40,7 @@
           </div>
           <div class="modal-footer">
             <div class="text-primary">Preço Total: R$ <?= $produto['preco'] ?></div>
-            <button type="submit" class="btn btn-success" form="i<?=$chave ?>">Finalizar Compra</button>
+            <button type="submit" class="btn btn-success" form="i<?=$produto['id'] ?>">Finalizar Compra</button>
           </div>
         </form>
       </div>

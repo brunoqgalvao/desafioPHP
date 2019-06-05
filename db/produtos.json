@@ -1,0 +1,32 @@
+{
+    "produtos": [
+        {
+            "id": "produto1",
+            "nome": "Curso Full Stack Master",
+            "descricao": "Um curso muito legal",
+            "preco": 1999,
+            "img_path": "img\/fullstack.jpg"
+        },
+        {
+            "id": "produto2",
+            "nome": "Curso Full Stack Master",
+            "descricao": "Um curso muito legal",
+            "preco": 1999,
+            "img_path": "img\/fullstack.jpg"
+        },
+        {
+            "id": "produto3",
+            "nome": "Curso Full Stack Master",
+            "descricao": "Um curso muito legal",
+            "preco": 1999,
+            "img_path": "img\/fullstack.jpg"
+        },
+        {
+            "id": "produto4",
+            "nome": "Curso Full Stack Master",
+            "descricao": "Um curso muito legal",
+            "preco": 1999,
+            "img_path": "img\/fullstack.jpg"
+        }
+    ]
+}

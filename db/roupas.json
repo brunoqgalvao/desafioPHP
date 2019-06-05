@@ -1,0 +1,62 @@
+{
+    "produto1": {
+        "nome": "Black Alien",
+        "categoria": "Camiseta",
+        "preco": 59,
+        "img_path": "img\/android.jpg"
+    },
+    "produto2": {
+        "nome": "Nina Simone",
+        "categoria": "Camiseta",
+        "preco": 59,
+        "img_path": "img\/android.jpg"
+    },
+    "produto3": {
+        "nome": "Teset",
+        "categoria": "Camiseta",
+        "preco": 59,
+        "img_path": "img\/android.jpg"
+    },
+    "produto4": {
+        "nome": "Jesu",
+        "categoria": "Camiseta",
+        "preco": 59,
+        "img_path": "img\/android.jpg"
+    },
+    "produto5": {
+        "nome": "Jesu",
+        "categoria": "Camiseta",
+        "preco": 59,
+        "img_path": "img\/android.jpg"
+    },
+    "produto6": {
+        "nome": "Jesu",
+        "categoria": "Camiseta",
+        "preco": 59,
+        "img_path": "img\/android.jpg"
+    },
+    "produto7": {
+        "nome": "Jesu",
+        "categoria": "Camiseta",
+        "preco": 59,
+        "img_path": "img\/android.jpg"
+    },
+    "produto8": {
+        "nome": "Teste",
+        "categoria": "Camiseta",
+        "preco": "12310",
+        "img_path": ""
+    },
+    "produto9": {
+        "nome": "Charlie Brown",
+        "categoria": "Camiseta",
+        "preco": "1500",
+        "img_path": ""
+    },
+    "produto10": {
+        "nome": "Testando 10",
+        "categoria": "Camiseta",
+        "preco": "",
+        "img_path": ""
+    }
+}

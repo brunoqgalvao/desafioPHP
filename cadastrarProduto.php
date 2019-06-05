@@ -1,6 +1,9 @@
 
 <?php
 
+const DB_ROUPAS = 'db/roupas.json';
+
+// parte do crud
 function addProdutoRoupa(&$produtos, $nome, $categoria, $preco, $img_path){
   $valid_categorias = ["Camiseta","Shorts","Calça","Chapéu"];
   if(!in_array($categoria , $valid_categorias)){
@@ -16,17 +19,31 @@ function addProdutoRoupa(&$produtos, $nome, $categoria, $preco, $img_path){
   $produtos["produto$chave"] = $novoProduto;
 }   
 
-$roupas = [];
-addProdutoRoupa($roupas,"Black Alien","Camiseta",59 ,"img/android.jpg");
-addProdutoRoupa($roupas,"Nina Simone","Camiseta",59 ,"img/android.jpg");
-addProdutoRoupa($roupas,"Teset","Camiseta",59 , "img/android.jpg");
-addProdutoRoupa($roupas,"Jesu","Camiseta",59 ,"img/android.jpg");
-addProdutoRoupa($roupas,"Jesu","Camiseta",59 ,"img/android.jpg");
-addProdutoRoupa($roupas,"Jesu","Camiseta",59 ,"img/android.jpg");
-addProdutoRoupa($roupas,"Jesu","Camiseta",59 ,"img/android.jpg");
+// "crud"
+function saveRoupas($obj){
+  $jsonRoupasIn = file_get_contents(DB_ROUPAS);
+  $roupas = json_decode($jsonRoupasIn,true);
+  addProdutoRoupa($roupas,$obj['nome'],$obj['categoria'],$obj['preco'] ,$obj['foto']);
+  $jsonRoupasOut = json_encode($roupas,148);
+  file_put_contents(DB_ROUPAS,$jsonRoupasOut);
+}
+
+
+// post roupa se houver request post
+if($_POST && $_POST['submit'] = 'Enviar'){
+  saveRoupas($_POST);
+}
+//load roupas
+$jsonRoupas = file_get_contents(DB_ROUPAS);
+$roupas = json_decode($jsonRoupas,true);
+
+// addProdutoRoupa($roupas,"Nina Simone","Camiseta",59 ,"img/android.jpg");
+// addProdutoRoupa($roupas,"Teset","Camiseta",59 , "img/android.jpg");
+// addProdutoRoupa($roupas,"Jesu","Camiseta",59 ,"img/android.jpg");
+// addProdutoRoupa($roupas,"Jesu","Camiseta",59 ,"img/android.jpg");
+// addProdutoRoupa($roupas,"Jesu","Camiseta",59 ,"img/android.jpg");
+// addProdutoRoupa($roupas,"Jesu","Camiseta",59 ,"img/android.jpg");
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,14 +74,14 @@ addProdutoRoupa($roupas,"Jesu","Camiseta",59 ,"img/android.jpg");
         </table>
       </div>
       <div class="col-lg-4 bg-light cadastrar-produto p-5">
-        <form>
+        <form method='post' action='#'>
           <div class="form-group">
             <label for="nome">Nome</label>
-            <input type="text" class="form-control" id="nome" placeholder="Nome do produto">
+            <input type="text" class="form-control" name='nome' id="nome" placeholder="Nome do produto">
           </div>
           <div class="form-group">
             <label for="categoria">Categoria</label>
-            <select class="form-control" id="categoria">
+            <select class="form-control" name='categoria' id="categoria">
               <option> Camiseta </option>
               <option> Shorts </option>
               <option> Calça </option>
@@ -73,17 +90,17 @@ addProdutoRoupa($roupas,"Jesu","Camiseta",59 ,"img/android.jpg");
           </div>
           <div class="form-group">
             <label for="quantidade">Quantidade</label>
-            <input type="number" class="form-control" id="quantidade" placeholder="Quantidade do produto">
+            <input type="number" class="form-control" name='quantidade' id="quantidade" placeholder="Quantidade do produto">
           </div>
           <div class="form-group">
             <label for="preco">Preço</label>
-            <input type="number" class="form-control" id="preco" placeholder="Preço do produto">
+            <input type="number" class="form-control" name='preco' id="preco" placeholder="Preço do produto">
           </div>
           <div class="form-group">
             <label for="foto">Foto do produto</label>
-            <input type="file" class="form-control" id="foto" placeholder="Foto do produto">
+            <input type="file" class="form-control" name='foto' id="foto" placeholder="Foto do produto">
           </div>
-          <input class='btn-primary' type="submit" value="Enviar"/>
+          <input class='btn-primary' type="submit" name='submit' value="Enviar"/>
         </form>
       </div>
     </div>
