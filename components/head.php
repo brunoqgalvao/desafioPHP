@@ -4,11 +4,9 @@
   include_once("repos/dados.php");
 
   $jsonProdutos = file_get_contents('db/produtos.json');
-  $produtosObj = json_decode($jsonProdutos,true);
-  $produtos = $produtosObj['produtos'];
+  $produtos = json_decode($jsonProdutos,true);
+  $produtos = addProduto("Curso Full Stack Master", "Um curso muito legal", 1999,'img/fullstack.jpg');
   $usuario = logarUsuario("Bruno Galvao", 0);
-  $produtosObj = addProduto("Curso Full Stack Master", "Um curso muito legal", 1999,'img/fullstack.jpg');
-  $produtos = $produtosObj['produtos'];
 
 ?>
 

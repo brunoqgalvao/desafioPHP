@@ -23,8 +23,7 @@
 
   function addProduto($nome, $descricao, $preco, $img_path){
     $jsonProdutos = file_get_contents('db/produtos.json');
-    $produtosObj = json_decode($jsonProdutos,true);
-    $produtos = $produtosObj['produtos'];
+    $produtos = json_decode($jsonProdutos,true);
     $chave = count($produtos) + 1;
     $novoProduto = [
       "id" => "produto$chave",
@@ -34,10 +33,9 @@
       "img_path" => $img_path,
     ]; 
     $produtos[] = $novoProduto;
-    $produtosObj['produtos']=$produtos;
-    $jsonProdutos = json_encode($produtosObj,128);
+    $jsonProdutos = json_encode($produtos,148);
     file_put_contents('db/produtos.json', $jsonProdutos);
-    return $produtosObj;
+    return $produtos;
   }   
 
 

@@ -1,32 +1,37 @@
 {
-    "produtos": [
-        {
-            "id": "produto1",
-            "nome": "Curso Full Stack Master",
-            "descricao": "Um curso muito legal",
-            "preco": 1999,
-            "img_path": "img\/fullstack.jpg"
-        },
-        {
-            "id": "produto2",
-            "nome": "Curso Full Stack Master",
-            "descricao": "Um curso muito legal",
-            "preco": 1999,
-            "img_path": "img\/fullstack.jpg"
-        },
-        {
-            "id": "produto3",
-            "nome": "Curso Full Stack Master",
-            "descricao": "Um curso muito legal",
-            "preco": 1999,
-            "img_path": "img\/fullstack.jpg"
-        },
-        {
-            "id": "produto4",
-            "nome": "Curso Full Stack Master",
-            "descricao": "Um curso muito legal",
-            "preco": 1999,
-            "img_path": "img\/fullstack.jpg"
-        }
-    ]
+    "0": {
+        "id": "produto1",
+        "nome": "Curso Full Stack Master",
+        "descricao": "Um curso muito legal",
+        "preco": 1999,
+        "img_path": "img\/fullstack.jpg"
+    },
+    "1": {
+        "id": "produto2",
+        "nome": "Curso Full Stack Master",
+        "descricao": "Um curso muito legal",
+        "preco": 1999,
+        "img_path": "img\/fullstack.jpg"
+    },
+    "2": {
+        "id": "produto3",
+        "nome": "Curso Full Stack Master",
+        "descricao": "Um curso muito legal",
+        "preco": 1999,
+        "img_path": "img\/fullstack.jpg"
+    },
+    "3": {
+        "id": "produto4",
+        "nome": "Curso Full Stack Master",
+        "descricao": "Um curso muito legal",
+        "preco": 1999,
+        "img_path": "img\/fullstack.jpg"
+    },
+    "4": {
+        "id": "produto5",
+        "nome": "Curso Full Stack Master",
+        "descricao": "Um curso muito legal",
+        "preco": 1999,
+        "img_path": "img\/fullstack.jpg"
+    }
 }
