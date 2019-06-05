@@ -1,7 +1,7 @@
 <?php
 
-  include("repos/funcoes.php");
-  include("repos/dados.php");
+  include_once("repos/funcoes.php");
+  include_once("repos/dados.php");
   $usuario = logarUsuario("Bruno Galvao", 0);
   addProduto($produtos, "Curso Full Stack Master", "Um curso muito legal", 1999,'img/fullstack.jpg');
 ?>
