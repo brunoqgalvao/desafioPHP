@@ -1,7 +1,7 @@
 
 <?php
-
 const DB_ROUPAS = 'db/roupas.json';
+include('repos/gen_uuid.php');
 
 // parte do crud
 function addProdutoRoupa(&$produtos, $nome, $categoria, $preco, $img_path){
@@ -15,34 +15,45 @@ function addProdutoRoupa(&$produtos, $nome, $categoria, $preco, $img_path){
     "preco" => $preco,
     "img_path" => $img_path,
   ];
-  $chave = count($produtos) + 1;
+  $chave = gen_uuid();
   $produtos["produto$chave"] = $novoProduto;
 }   
+
+function removeProdutoRoupa(&$produtos, $chave){
+  unset($produtos["$chave"]);
+}
 
 // "crud"
 function saveRoupas($obj){
   $jsonRoupasIn = file_get_contents(DB_ROUPAS);
   $roupas = json_decode($jsonRoupasIn,true);
-  addProdutoRoupa($roupas,$obj['nome'],$obj['categoria'],$obj['preco'] ,$obj['foto']);
+  addProdutoRoupa($roupas,$obj['nome'],$obj['categoria'],$obj['preco'] ,'testepath');
+  $jsonRoupasOut = json_encode($roupas,148);
+  file_put_contents(DB_ROUPAS,$jsonRoupasOut);
+}
+
+function deleteRoupas($obj){
+  $chave = $obj['key'];
+  $jsonRoupasIn = file_get_contents(DB_ROUPAS);
+  $roupas = json_decode($jsonRoupasIn,true);
+  removeProdutoRoupa($roupas,$chave);
   $jsonRoupasOut = json_encode($roupas,148);
   file_put_contents(DB_ROUPAS,$jsonRoupasOut);
 }
 
 
 // post roupa se houver request post
-if($_POST && $_POST['submit'] = 'Enviar'){
+if($_POST && $_POST['submit'] == 'Enviar'){
   saveRoupas($_POST);
+} elseif($_POST && $_POST['submit'] == 'delete'){
+  deleteRoupas($_POST);
 }
+
+
 //load roupas
 $jsonRoupas = file_get_contents(DB_ROUPAS);
 $roupas = json_decode($jsonRoupas,true);
 
-// addProdutoRoupa($roupas,"Nina Simone","Camiseta",59 ,"img/android.jpg");
-// addProdutoRoupa($roupas,"Teset","Camiseta",59 , "img/android.jpg");
-// addProdutoRoupa($roupas,"Jesu","Camiseta",59 ,"img/android.jpg");
-// addProdutoRoupa($roupas,"Jesu","Camiseta",59 ,"img/android.jpg");
-// addProdutoRoupa($roupas,"Jesu","Camiseta",59 ,"img/android.jpg");
-// addProdutoRoupa($roupas,"Jesu","Camiseta",59 ,"img/android.jpg");
 ?>
 
 <!DOCTYPE html>
@@ -60,21 +71,31 @@ $roupas = json_decode($jsonRoupas,true);
               <th scope="col">Nome</th>
               <th scope="col">Categoria</th>
               <th scope="col">Preço</th>
+              <th scope="col"></th>
+
             </tr>
           </thead>
           <tbody>
-            <?php foreach($roupas as $roupa):  ?>
+            <?php foreach($roupas as $chave => $roupa):  ?>
               <tr>
                 <td><?= $roupa['nome'] ?></td>
                 <td><?= $roupa['categoria'] ?></td>
                 <td><?= $roupa['preco'] ?></td>
+                <td>	
+                  <form method='post' action='#'>
+                    <input type='text' name='submit' value='delete' style="display:none"/>
+                    <input type='text' name='key' value= "<?= $chave ?>" style="display:none"/>
+                    <button type='submit' name='submit' value='delete'>&#x1F5D1;</button>
+                  </form>
+                  <span id='btn-delete-item'>&#x270E;</span>
+                </td>
               </tr>
             <?php endforeach  ?>
           </tbody>
         </table>
       </div>
       <div class="col-lg-4 bg-light cadastrar-produto p-5">
-        <form method='post' action='#'>
+        <form method='post' action='#' enctype="multipart/form-data">
           <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" class="form-control" name='nome' id="nome" placeholder="Nome do produto">
@@ -105,6 +126,8 @@ $roupas = json_decode($jsonRoupas,true);
       </div>
     </div>
   </div>
+
   
 </body>
+
 </html>.

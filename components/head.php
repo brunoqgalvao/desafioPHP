@@ -5,7 +5,6 @@
 
   $jsonProdutos = file_get_contents('db/produtos.json');
   $produtos = json_decode($jsonProdutos,true);
-  $produtos = addProduto("Curso Full Stack Master", "Um curso muito legal", 1999,'img/fullstack.jpg');
   $usuario = logarUsuario("Bruno Galvao", 0);
 
 ?>
