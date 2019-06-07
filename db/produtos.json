@@ -96,5 +96,26 @@
         "descricao": "12312312",
         "preco": "12312",
         "img_path": "img\/exame-laisa-1.jpg"
+    },
+    "14": {
+        "id": "produto15",
+        "nome": "Teste",
+        "descricao": "teste12312",
+        "preco": "132131",
+        "img_path": "img\/chat-bot-branch.png"
+    },
+    "15": {
+        "id": "produto16",
+        "nome": "Teste",
+        "descricao": "teste12312",
+        "preco": "132131",
+        "img_path": "img\/carteirinha-laisa.jpg"
+    },
+    "16": {
+        "id": "produto17",
+        "nome": "Teste",
+        "descricao": "teste12312",
+        "preco": "132131",
+        "img_path": "img\/Capturar.PNG"
     }
 }

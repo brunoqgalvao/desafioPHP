@@ -1,5 +1,9 @@
 
 <?php
+
+//TODO: Colocar save de imagem e save no banco de dados;
+//TODO: Fazer modal para editar item;
+
 const DB_ROUPAS = 'db/roupas.json';
 include('repos/gen_uuid.php');
 
@@ -24,7 +28,7 @@ function removeProdutoRoupa(&$produtos, $chave){
 }
 
 // "crud"
-function saveRoupas($obj){
+function saveRoupas($obj,$files){
   $jsonRoupasIn = file_get_contents(DB_ROUPAS);
   $roupas = json_decode($jsonRoupasIn,true);
   addProdutoRoupa($roupas,$obj['nome'],$obj['categoria'],$obj['preco'] ,'testepath');

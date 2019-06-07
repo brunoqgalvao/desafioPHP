@@ -21,7 +21,7 @@ function validarPreco($preco){
 function validarImg($tipo){
   var_dump($tipo);
   $imgAceitas = ['image/png','image/jpg','image/jpeg'];
-  return array_search($tipo, $imgAceitas) != false;
+  return array_search($tipo, $imgAceitas) !== false;
 }
 function validarProduto(){
     if(!validarNomeProduto($_POST['nomeProduto'])){
