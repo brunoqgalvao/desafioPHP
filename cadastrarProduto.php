@@ -5,7 +5,7 @@
 //TODO: Fazer modal para editar item;
 
 const DB_ROUPAS = 'db/roupas.json';
-include('repos/gen_uuid.php');
+include_once('repos/gen_uuid.php');
 
 // parte do crud
 function addProdutoRoupa(&$produtos, $nome, $categoria, $preco, $img_path){

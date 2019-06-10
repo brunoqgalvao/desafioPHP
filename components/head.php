@@ -2,11 +2,12 @@
 
   include_once("repos/funcoes.php");
   include_once("repos/dados.php");
-
   $jsonProdutos = file_get_contents('db/produtos.json');
   $produtos = json_decode($jsonProdutos,true);
-  $usuario = logarUsuario("Bruno Galvao", 0);
 
+  session_start();
+  $usuario = isset($_SESSION['usuario'])?$_SESSION['usuario']:["logado" => false, "nome" => 'Visitante', "nivelAcesso" => 0];
+  ;
 ?>
 
 <head>

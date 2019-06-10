@@ -9,7 +9,7 @@
         <form action="salvarProduto.php" method="post" enctype="multipart/form-data">
         
         <div class="form-group">
-          <label for="Nome do produto:">Nome do produto</label>
+          <label for="nomeProduto">Nome do produto</label>
           <input type="text" class="form-control" id="nomeProduto" name="nomeProduto">
         </div>
         <div class="form-group">
