@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
 
-          <?php if(isset($usuario) && $usuario != ""): ?>
+          <?php if(isset($usuario) && $usuario['nome'] != ""): ?>
           <?php if($usuario['nivelAcesso'] == 0): ?>
           <li class="nav-item active">
             <a class="nav-link" href="#"> Perfil <span class="sr-only">(current)</span></a>
@@ -25,7 +25,7 @@
           </li>
           <?php else: ?>
           <li class='nav-item'>
-            <a href='#' class='nav-link'> Login </a>
+            <a href='login.php' class='nav-link'> Login </a>
           </li>
           <?php endif ?>
         </ul>
