@@ -1,20 +1,18 @@
 {
-    "produto2": {
+    "produto5b7bf99e-d00f-4458-812e-c15b04bc3f15": {
         "nome": "Nina Simone",
         "categoria": "Camiseta",
-        "preco": 59,
-        "img_path": "img\/android.jpg"
+        "descricao": "Camiseta Branca Com foto",
+        "quantidade": "2",
+        "preco": "89",
+        "img_path": "img\/CartaSolar12Sul.PNG"
     },
-    "produto3": {
-        "nome": "bruno",
+    "produto2039532e-df74-4157-de14-0e1217c320f5": {
+        "nome": "Bruno Galv\u00e3o",
         "categoria": "Camiseta",
-        "preco": "12312",
-        "img_path": "testepath"
-    },
-    "produto4c7bfc55-e4cc-4e34-fe92-6c525e8c343e": {
-        "nome": "teste",
-        "categoria": "Camiseta",
-        "preco": "123",
-        "img_path": "testepath"
+        "descricao": "Cantor famoso!",
+        "quantidade": "3",
+        "preco": "1200",
+        "img_path": "img\/andre_surf.jpg"
     }
 }
